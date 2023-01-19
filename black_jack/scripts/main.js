@@ -9,14 +9,51 @@ const hand = {
             this.current_total += card.value;
         })
            $("#hdrTotal").html("Total: " + this.current_total);
+
+           if (this.current_total > 21) {
+                $("#btnStick").trigger("click");
+                $("#imgResult").attr('src', './images/x2.png');
+                $("#hdrResult").html("BUST!").attr('class', 'lose');
+           } else if (this.current_total == 21) {
+                $("#btnStick").trigger("click");
+                $("#imgResult").attr('src', './images/check.png');
+                $("#hdrResult").html("BlackJack!").attr('class', 'win');
+           } else if (this.current_total < 21 && this.cards.length == 5) { 
+                $("#btnStick").trigger("click");
+                $("#imgResult").attr('src', './images/check.png');
+                $("#hdrResult").html("5 card trick!").attr('class', 'win');
+           }
+           return this.current_total;
     }
 }
 $(document).ready(function() {
     $("#btnDeal").click(function() {
         deal();
-        // $(this).toggle();
+        $(this).toggle();
+        $("#btnHit").toggle();
+        $("#btnStick").toggle();
+    });
+    $("#btnHit").click(function() {
+        hit();
+    });
+    $("#btnStick").click(function() {
+        $("hdrResult").html("Stick!").attr('class', 'win');
+        $("#result").toggle();
+        end();
+    });
+    $("#btnRestart").click(function() {
+        $("#result").toggle();
+        $(this).toggle();
+        $("#my_hand").empty();
+        $("#hdrResult").html('');
+        usedCards.length = 0;
+        hand.cards.length = 0;
+        hand.current_total = 0;
+
+        $("#btnDeal").toggle()
+                    .trigger("click");
     })
-})
+});
 
 function deal() {
     for (let i = 0; i<2; i++) {
@@ -43,13 +80,16 @@ if(!usedCards.includes(index)) {
 
     $("<img>").appendTo($d)
         .attr('src', card.src)
-    hand.sumCardTotal()
 } while(!good_card);
+
 good_card = false;
+hand.sumCardTotal()
 }
 
-function getRandom(num) {
-return Math.floor(Math.random() * num);
+function end() {
+    $("#btnHit").toggle();
+    $("#btnStick").toggle();
+    $("#btnRestart").toggle();
 }
 
 function createDeck() {
@@ -84,6 +124,10 @@ function createDeck() {
 
     return deck;
 }
+
+function getRandom(num) {
+    return Math.floor(Math.random() * num);
+    }
         
 function capitalize(str) {
     const lower = str.toLowerCase();

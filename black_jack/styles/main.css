@@ -6,6 +6,14 @@
     float: left;
 }
 
+.win{
+	color:green;
+}
+
+.lose{
+	color:red;
+}
+
 #my_hand {
     clear: both;
     border: 1px solid gray;
@@ -21,4 +29,16 @@
 h3 {
     display: inline;
     padding-right: 40px;
+}
+
+#result{
+	display:none;
+	position:absolute;
+	top: 100px;
+	left: 20px;
+}
+
+#result > img {
+	width: 500px;
+	height: 250px;
 }
