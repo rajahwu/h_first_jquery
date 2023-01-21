@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Cryptid Sighting</title>
+    <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="./styles/form.css">
+    <script src="./jquery-ui-1.13.2.custom/external/jquery/jquery.js"></script>
+    <script src="./jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <div class="ui-widget-header ui-corner-top  ui-corner-bottom">
+        <h2>Submit Your Cryptid Sighting</h2>
+        <h3>Fill out the form below and click "Enter" to Submit</h3>
+    </div>
+
+
+    <form id="form" name="form" method="post" action="sightings.php">
+
+        <div class="ui-widget-content ">
+            <h3>CRYPTID SIGHTING DATA</h3>
+        </div>
+        <div class="ui-widget-content ">
+            <label for="sighting_date">
+                <h3>Date of Sighting:</h3>
+                <input type="text" name="sighting_date" id="datepicker" />
+            </label>
+
+            <h3>Creature Type:</h3>
+            <div id="type_select">
+                <input type="radio" name="creature_type" id="radio1" title="radio1">
+                <label for="radio1">Chupacabras</label>
+                <input type="radio" name="creature_type" id="radio2" title="radio2">
+                <label for="radio2">Jersey Devil</label>
+                <input type="radio" name="creature_type" id="radio3" title="radio3">
+                <label for="radio3">Loch Ness Monster</label>
+                <input type="radio" name="creature_type" id="radio4" title="radio4">
+                <label for="radio4">Sasquatch</label>
+            </div>
+
+            <h3>Distance from Creature (in ft.):</h3>
+            <input type="text" id="distance" class="just_display" name="creature_distance" readonly="readonly"
+                title="creature_distance">
+            <div id="slide_dist"></div>
+
+            <h3>Creature Weight (in lbs.):</h3>
+            <input type="text" id="weight" class="just_display" name="creature_weight" readonly="readonly"
+                title="creature_weight">
+            <div id="slide_weight"></div>
+
+            <h3>Creature Height (in ft.)::</h3>
+            <input type="text" id="height" class="just_display" name="creature_height" readonly="readonly"
+                title="creature_height">
+            <div id="slide_height"></div>
+
+            <h3>Color of Creature (use the color slider to enter):</h3>
+            Color (in hexadecimal): <input type="text" name="creature_color" id="color_val" class="just_display"
+                readonly="readonly" title="creature_color">
+            <br /><br />
+            <div id="swatch" class="ui-widget-content ui-corner-all"></div>
+
+            Red: <input type="text" name="creature_color" id="red_val" class="just_display" readonly="readonly"
+                title="creatue_color">
+            <div id="red"></div>
+            Green: <input type="text" name="creature_color" id="green_val" class="just_display" readonly="readonly"
+                title="creatue_color">
+            <div id="green"></div>
+            Blue: <input type="text" name="creature_color" id="blue_val" class="just_display" readonly="readonly"
+                title="creatue_color">
+            <div id="blue"></div>
+
+        </div>
+        <div class="ui-widget-content ">
+            <h3>CRYPTID LOCATION DATA</h3>
+        </div>
+        <div class="ui-widget-content ">
+            <h3>Latitude of Sighting:</h3>
+            <input type="text" id="latitude" class="just_display" name="sighting_latitude" readonly="readonly"
+                title="sighting_latitude">
+            <div id="slide_latitude"></div>
+            <h3>Longitude of Sighting:</h3>
+            <input type="text" id="longitude" class="just_display" name="sighting_longitude" readonly="readonly"
+                title="sighting_longtitude">
+            <div id="slide_longitude"></div>
+        </div>
+
+        <div class="ui-widget-header ui-corner-top  ui-corner-bottom">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
