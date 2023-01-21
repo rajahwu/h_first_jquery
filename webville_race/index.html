@@ -18,6 +18,7 @@
             <li><a href="#male">Male Finishers</a></li>
             <li><a href="#female">Female Finishers</a></li>
             <li><a href="#finishers">All Finishers</a></li>
+            <li><a href="#new">Add New Finisher</a></li>
         </ul>
         <div id="male">
             <h4>Male Finishers</h4>
@@ -32,6 +33,32 @@
         <div id="finishers">
             <h4>All Finishers</h4>
             <ul id="finishers_all"></ul>
+        </div>
+
+        <div id="new">
+            <h4>Add New Finisher</h4>
+            <form id="addRunner" action="service.php" name="addRunner" method="POST">
+                <label for="txtFirstName">First Name:</label>
+                <input id="txtFirstName" type="text" name="txtFirstName">
+                <br>
+                <label for="txtLastName">Last Name:</label>
+                <input id="txtLastName" type="text" name="txtLastName">
+                <br>
+                <label for="ddlGender-select">Gender:</label>
+                <select id="ddlGender" name="dllGender" title="ddlGender">
+                    <option value="">--Please Select--</option>
+                    <option value="f">Female</option>
+                    <option value="m">Male</option>
+                </select><br>
+                <label for="finishTime">Finish Time:</label>
+                <input type="text" name="txtMinutes" id="txtMinutes" size="10" maxlength="2" title="finishTime">
+                <span>(Minutes)</span>
+                <input type="text" name="txtSeconds" id="txtSeconds" size="10" maxlength="2" title="finishTime">
+                <span>(seconds)</span>
+                <br><br>
+                <input type="hidden" name="action" value="addRunner" id="action">
+                <button id="btnSave" name="btnSave" type="submit">Add Runner</button>
+            </form>
         </div>
     </div>
     <footer>
